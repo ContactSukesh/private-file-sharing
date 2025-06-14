@@ -465,13 +465,13 @@ async function uploadFile(file) {
     });
 
     const result = await response.json();
-    const downloadURL = location.origin + result.link;
+    downloadURL = location.origin + result.link;
     const uniqueid = result.fileId;
 
     emptyState.style.display = 'none';
     uploadStats.style.display = 'block';
 
-    return { fileId: uniqueid, downloadURL }; // ✅ Return both
+    return { fileId: uniqueid }; // ✅ Return both
   } catch (err) {
     alert("Upload failed.");
     uploadStats.style.display = 'none';
